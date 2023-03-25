@@ -1,175 +1,288 @@
 @extends('layout')
 @section('content')
-    <div class="page-content">
-        <div class="container-fluid">
-            <!-- end page title -->
+<link rel="stylesheet" type="text/css" href="{{ asset('styles/categories_styles.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('styles/categories_responsive.css')}}">
+<div class="hamburger_menu">
+    <div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
+    <div class="hamburger_menu_content text-right">
+        <ul class="menu_top_nav">
+            <li class="menu_item has-children">
+                <a href="#">
+                    usd
+                    <i class="fa fa-angle-down"></i>
+                </a>
+                <ul class="menu_selection">
+                    <li><a href="#">cad</a></li>
+                    <li><a href="#">aud</a></li>
+                    <li><a href="#">eur</a></li>
+                    <li><a href="#">gbp</a></li>
+                </ul>
+            </li>
+            <li class="menu_item has-children">
+                <a href="#">
+                    English
+                    <i class="fa fa-angle-down"></i>
+                </a>
+                <ul class="menu_selection">
+                    <li><a href="#">French</a></li>
+                    <li><a href="#">Italian</a></li>
+                    <li><a href="#">German</a></li>
+                    <li><a href="#">Spanish</a></li>
+                </ul>
+            </li>
+            <li class="menu_item has-children">
+                <a href="#">
+                    My Account
+                    <i class="fa fa-angle-down"></i>
+                </a>
+                <ul class="menu_selection">
+                    <li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
+                    <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
+                </ul>
+            </li>
+            <li class="menu_item"><a href="#">home</a></li>
+            <li class="menu_item"><a href="#">shop</a></li>
+            <li class="menu_item"><a href="#">promotion</a></li>
+            <li class="menu_item"><a href="#">pages</a></li>
+            <li class="menu_item"><a href="#">blog</a></li>
+            <li class="menu_item"><a href="#">contact</a></li>
+        </ul>
+    </div>
+</div>
 
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title mb-4">Filter</h4>
+<div class="container product_section_container">
+    <div class="row">
+        <div class="col product_section clearfix">
 
-                            <div>
-                                <h5 class="font-size-14 mb-3">Clothes</h5>
-                                <ul class="list-unstyled product-list">
-                                    <li><a href="#"><i class="mdi mdi-chevron-right mr-1"></i> T-shirts</a></li>
-                                    <li><a href="#"><i class="mdi mdi-chevron-right mr-1"></i> Shirts</a></li>
-                                    <li><a href="#"><i class="mdi mdi-chevron-right mr-1"></i> Jeans</a></li>
-                                    <li><a href="#"><i class="mdi mdi-chevron-right mr-1"></i> Jackets</a></li>
-                                </ul>
-                            </div>
-                            <div class="mt-4 pt-3">
-                                <h5 class="font-size-14 mb-3">Price</h5>
-                                <input type="text" id="pricerange">
-                            </div>
+            <!-- Breadcrumbs -->
 
-                            <div class="mt-4 pt-3">
-                                <h5 class="font-size-14 mb-3">Discount</h5>
-                                <div class="custom-control custom-checkbox mt-2">
-                                    <input type="checkbox" class="custom-control-input" id="productdiscountCheck1">
-                                    <label class="custom-control-label" for="productdiscountCheck1">Less than 10%</label>
-                                </div>
-                                <div class="custom-control custom-checkbox mt-2">
-                                    <input type="checkbox" class="custom-control-input" id="productdiscountCheck2">
-                                    <label class="custom-control-label" for="productdiscountCheck2">10% or more</label>
-                                </div>
-                                <div class="custom-control custom-checkbox mt-2">
-                                    <input type="checkbox" class="custom-control-input" id="productdiscountCheck3" checked="">
-                                    <label class="custom-control-label" for="productdiscountCheck3">20% or more</label>
-                                </div>
-                                <div class="custom-control custom-checkbox mt-2">
-                                    <input type="checkbox" class="custom-control-input" id="productdiscountCheck4">
-                                    <label class="custom-control-label" for="productdiscountCheck4">30% or more</label>
-                                </div>
-                                <div class="custom-control custom-checkbox mt-2">
-                                    <input type="checkbox" class="custom-control-input" id="productdiscountCheck5">
-                                    <label class="custom-control-label" for="productdiscountCheck5">40% or more</label>
-                                </div>
-                                <div class="custom-control custom-checkbox mt-2">
-                                    <input type="checkbox" class="custom-control-input" id="productdiscountCheck6">
-                                    <label class="custom-control-label" for="productdiscountCheck6">50% or more</label>
-                                </div>
-                            </div>
+            <div class="breadcrumbs d-flex flex-row align-items-center">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active"><a href="index.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Men's</a></li>
+                </ul>
+            </div>
 
-                            <div class="mt-4 pt-3">
-                                <h5 class="font-size-14 mb-3">Customer Rating</h5>
-                                <div>
-                                    <div class="custom-control custom-checkbox mt-2">
-                                        <input type="checkbox" class="custom-control-input" id="productratingCheck1">
-                                        <label class="custom-control-label" for="productratingCheck1">4 <i class="bx bx-star text-warning"></i>  & Above</label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox mt-2">
-                                        <input type="checkbox" class="custom-control-input" id="productratingCheck2">
-                                        <label class="custom-control-label" for="productratingCheck2">3 <i class="bx bx-star text-warning"></i>  & Above</label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox mt-2">
-                                        <input type="checkbox" class="custom-control-input" id="productratingCheck3">
-                                        <label class="custom-control-label" for="productratingCheck3">2 <i class="bx bx-star text-warning"></i>  & Above</label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox mt-2">
-                                        <input type="checkbox" class="custom-control-input" id="productratingCheck4">
-                                        <label class="custom-control-label" for="productratingCheck4">1 <i class="bx bx-star text-warning"></i></label>
-                                    </div>
+            <!-- Sidebar -->
 
-                                </div>
-                            </div>
-                        </div>
+            <div class="sidebar">
+                <div class="sidebar_section">
+                    <div class="sidebar_title">
+                        <h5>Product Category</h5>
                     </div>
-
+                    <ul class="sidebar_categories">
+                        <li><a href="#">Men</a></li>
+                        <li class="active"><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>Women</a></li>
+                        <li><a href="#">Accessories</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Collection</a></li>
+                        <li><a href="#">Shop</a></li>
+                    </ul>
                 </div>
-                <div class="col-lg-9">
 
-                    <div class="row mb-3">
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="mt-2">
-                                <h5>Clothes</h5>
-                            </div>
-                        </div>
-                        <div class="col-lg-8 col-sm-6">
-                            <form class="mt-4 mt-sm-0 float-sm-right form-inline">
-                                <div class="search-box mr-2">
-                                    <div class="position-relative">
-                                        <input type="text" class="form-control border-0" placeholder="Search...">
-                                        <i class="bx bx-search-alt search-icon"></i>
-                                    </div>
-                                </div>
-                                <ul class="nav nav-pills product-view-nav">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="#"><i class="bx bx-grid-alt"></i></a>
+                <!-- Price Range Filtering -->
+                <div class="sidebar_section">
+                    <div class="sidebar_title">
+                        <h5>Filter by Price</h5>
+                    </div>
+                    <p>
+                        <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                    </p>
+                    <div id="slider-range"></div>
+                    <div class="filter_button"><span>filter</span></div>
+                </div>
+
+                <!-- Sizes -->
+                <div class="sidebar_section">
+                    <div class="sidebar_title">
+                        <h5>Sizes</h5>
+                    </div>
+                    <ul class="checkboxes">
+                        <li><i class="fa fa-square-o" aria-hidden="true"></i><span>S</span></li>
+                        <li class="active"><i class="fa fa-square" aria-hidden="true"></i><span>M</span></li>
+                        <li><i class="fa fa-square-o" aria-hidden="true"></i><span>L</span></li>
+                        <li><i class="fa fa-square-o" aria-hidden="true"></i><span>XL</span></li>
+                        <li><i class="fa fa-square-o" aria-hidden="true"></i><span>XXL</span></li>
+                    </ul>
+                </div>
+
+                <!-- Color -->
+                <div class="sidebar_section">
+                    <div class="sidebar_title">
+                        <h5>Color</h5>
+                    </div>
+                    <ul class="checkboxes">
+                        <li><i class="fa fa-square-o" aria-hidden="true"></i><span>Black</span></li>
+                        <li class="active"><i class="fa fa-square" aria-hidden="true"></i><span>Pink</span></li>
+                        <li><i class="fa fa-square-o" aria-hidden="true"></i><span>White</span></li>
+                        <li><i class="fa fa-square-o" aria-hidden="true"></i><span>Blue</span></li>
+                        <li><i class="fa fa-square-o" aria-hidden="true"></i><span>Orange</span></li>
+                        <li><i class="fa fa-square-o" aria-hidden="true"></i><span>White</span></li>
+                        <li><i class="fa fa-square-o" aria-hidden="true"></i><span>Blue</span></li>
+                        <li><i class="fa fa-square-o" aria-hidden="true"></i><span>Orange</span></li>
+                        <li><i class="fa fa-square-o" aria-hidden="true"></i><span>White</span></li>
+                        <li><i class="fa fa-square-o" aria-hidden="true"></i><span>Blue</span></li>
+                        <li><i class="fa fa-square-o" aria-hidden="true"></i><span>Orange</span></li>
+                    </ul>
+                    <div class="show_more">
+                        <span><span>+</span>Show More</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Main Content -->
+
+            <div class="main_content">
+
+                <!-- Products -->
+
+                <div class="products_iso">
+                    <div class="row">
+                        <div class="col">
+
+                            <!-- Product Sorting -->
+
+                            <div class="product_sorting_container product_sorting_container_top">
+                                <ul class="product_sorting">
+                                    <li>
+                                        <span class="type_sorting_text">Default Sorting</span>
+                                        <i class="fa fa-angle-down"></i>
+                                        <ul class="sorting_type">
+                                            <li class="type_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>Default Sorting</span></li>
+                                            <li class="type_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>Price</span></li>
+                                            <li class="type_sorting_btn" data-isotope-option='{ "sortBy": "name" }'><span>Product Name</span></li>
+                                        </ul>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#"><i class="bx bx-list-ul"></i></a>
+                                    <li>
+                                        <span>Show</span>
+                                        <span class="num_sorting_text">6</span>
+                                        <i class="fa fa-angle-down"></i>
+                                        <ul class="sorting_num">
+                                            <li class="num_sorting_btn"><span>6</span></li>
+                                            <li class="num_sorting_btn"><span>12</span></li>
+                                            <li class="num_sorting_btn"><span>24</span></li>
+                                        </ul>
                                     </li>
                                 </ul>
+                                <div class="pages d-flex flex-row align-items-center">
+                                    <div class="page_current">
+                                        <span>1</span>
+                                        <ul class="page_selection">
+                                            <li><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="page_total"><span>of</span> 3</div>
+                                    <div id="next_page" class="page_next"><a href="#"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></div>
+                                </div>
 
+                            </div>
 
-                            </form>
-                        </div>
-                    </div>
-                    <div class="row">
-                        @foreach ($products as $product)
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="product-img position-relative">
-                                        <div class="avatar-sm product-ribbon">
-                                            <span class="avatar-title rounded-circle  bg-primary">
-                                                @php
-                                                    $number_discount = (($product->price - $product->discount) / $product->price) * 100;
-                                                    echo $number_discount;
-                                                @endphp
-                                            </span>
+                            <!-- Product Grid -->
+
+                            <div class="product-grid">
+
+                                <!-- Product 1 -->
+                                @foreach ($products as $product )
+                                <div class="product-item men">
+                                    <div class="product discount product_filter">
+                                        <div class="product_image">
+                                            <img src="{{ Storage::url('images/' . $product->image) }}">
                                         </div>
-                                        <a href="{{ url('product/details', [$product->id]) }}">
-                                            <img src="{{ Storage::url('images/' . $product->image) }}" alt="" class="img-fluid mx-auto d-block">
-                                        </a>
+                                        <div class="favorite favorite_left"></div>
+                                        <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
+                                        <div class="product_info">
+                                            <h6 class="product_name"><a href="{{ url('product/details', [$product->id]) }}">{{$product->name}}</a></h6>
+                                            <div class="product_price">{{ $product->discount }}<span>{{ $product->price }}</span></div>
+                                        </div>
                                     </div>
-                                    <div class="mt-4 text-center">
-                                        <h5 class="mb-3 text-truncate"><a href="{{ url('product/details', [$product->id]) }}" class="text-dark">{{ $product->name }}</a></h5>
-                                        <h5 class="my-0"><span class="text-muted mr-2"><del>{{$product->discount}}</del></span> <b>{{ $product->price }}</b></h5>
+                                    <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                                </div>
+                                @endforeach
+                                <!-- Product 2 -->
+                            <!-- Product Sorting -->
 
+                            <div class="product_sorting_container product_sorting_container_bottom clearfix">
+                                <ul class="product_sorting">
+                                    <li>
+                                        <span>Show:</span>
+                                        <span class="num_sorting_text">04</span>
+                                        <i class="fa fa-angle-down"></i>
+                                        <ul class="sorting_num">
+                                            <li class="num_sorting_btn"><span>01</span></li>
+                                            <li class="num_sorting_btn"><span>02</span></li>
+                                            <li class="num_sorting_btn"><span>03</span></li>
+                                            <li class="num_sorting_btn"><span>04</span></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <span class="showing_results">Showing 1–3 of 12 results</span>
+                                <div class="pages d-flex flex-row align-items-center">
+                                    <div class="page_current">
+                                        <span>1</span>
+                                        <ul class="page_selection">
+                                            <li><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                        </ul>
                                     </div>
+                                    <div class="page_total"><span>of</span> 3</div>
+                                    <div id="next_page_1" class="page_next"><a href="#"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></div>
                                 </div>
                             </div>
-                        </div>
-                        @endforeach
-                    </div>
-                    <!-- end row -->
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <ul class="pagination pagination-rounded justify-content-center mt-4">
-                                <li class="page-item disabled">
-                                    <a href="{{ $products->previousPageUrl() }}" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
-                                </li>
-                                <li class="page-item">
-                                    <a href="#" class="page-link">1</a>
-                                </li>
-                                <li class="page-item active">
-                                    <a href="#" class="page-link">2</a>
-                                </li>
-                                <li class="page-item">
-                                    <a href="#" class="page-link">3</a>
-                                </li>
-                                <li class="page-item">
-                                    <a href="#" class="page-link">4</a>
-                                </li>
-                                <li class="page-item">
-                                    <a href="#" class="page-link">5</a>
-                                </li>
-                                <li class="page-item">
-                                    <a href="{{ $products->nextPageUrl() }}" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
-                                </li>
-                            </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- end row -->
-
-        </div> <!-- container-fluid -->
+        </div>
     </div>
-    <!-- End Page-content -->
+</div>
+
+<!-- Benefit -->
+
+<div class="benefit">
+    <div class="container">
+        <div class="row benefit_row">
+            <div class="col-lg-3 benefit_col">
+                <div class="benefit_item d-flex flex-row align-items-center">
+                    <div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
+                    <div class="benefit_content">
+                        <h6>free shipping</h6>
+                        <p>Suffered Alteration in Some Form</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 benefit_col">
+                <div class="benefit_item d-flex flex-row align-items-center">
+                    <div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+                    <div class="benefit_content">
+                        <h6>cach on delivery</h6>
+                        <p>The Internet Tend To Repeat</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 benefit_col">
+                <div class="benefit_item d-flex flex-row align-items-center">
+                    <div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
+                    <div class="benefit_content">
+                        <h6>45 days return</h6>
+                        <p>Making it Look Like Readable</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 benefit_col">
+                <div class="benefit_item d-flex flex-row align-items-center">
+                    <div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+                    <div class="benefit_content">
+                        <h6>opening all week</h6>
+                        <p>8AM - 09PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

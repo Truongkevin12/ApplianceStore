@@ -12,7 +12,6 @@ class ProductsController extends Controller
 {
     public function index()
     {
-
         $products = Products::paginate(10);
         return view('client.product.product', compact('products'));
     }
@@ -22,18 +21,18 @@ class ProductsController extends Controller
         $products = Products::findOrFail($id);
         return view('client.product.product-details', compact('products'));
     }
-    public function banner()
-    {
-        $banner = Banner::all();
-        // dd($banner);
-        return view('client.index',compact('banner'));
-    }
-    public function blog()
-    {
-        $blog = News::all();
-        // dd($banner);
-        return view('client.index',compact('blog'));
-    }
+    // public function banner()
+    // {
+    //     $banner = Banner::all();
+    //     // dd($banner);
+    //     return view('client.index',compact('banner'));
+    // }
+    // public function blog()
+    // {
+    //     $blog = News::all();
+    //     // dd($banner);
+    //     return view('client.index',compact('blog'));
+    // }
 
 
 }

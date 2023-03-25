@@ -1,256 +1,80 @@
 @extends('layout')
 @section('content')
-                <div class="page-content">
-                    <div class="container-fluid">
-                        <!-- start page title -->
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="page-title-box d-flex align-items-center justify-content-between">
-                                    <h4 class="mb-0 font-size-18">Product Detail</h4>
-
-                                    <div class="page-title-right">
-                                        <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Ecommerce</a></li>
-                                            <li class="breadcrumb-item active">Product Detail</li>
-                                        </ol>
-                                    </div>
-
-                                </div>
-                            </div>
+<link rel="stylesheet" type="text/css" href="{{ asset('styles/single_styles.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('styles/single_responsive.css')}}">
+<style>
+    .add_to_cart_button {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+        height: 40px;
+        background: #fe4c50;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="{{ asset('plugins/jquery-ui-1.12.1.custom/jquery-ui.css')}}">
+<script src="{{ asset('js/single_custom.js')}}"></script>
+<div class="container single_product_container">
+    <div class="row">
+        <div class="col">
+            <!-- Breadcrumbs -->
+            <div class="breadcrumbs d-flex flex-row align-items-center">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="categories.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Men's</a></li>
+                    <li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Single Product</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-7">
+            <div class="single_product_pics">
+                <div class="row">
+                    <div class="col-lg-3 thumbnails_col order-lg-1 order-2">
+                        <div class="single_product_thumbnails">
+                            <ul>
+                                <li><img src="images/single_1_thumb.jpg" alt="" data-image="images/single_1.jpg"></li>
+                                <li class="active"><img src="images/single_2_thumb.jpg" alt="" data-image="images/single_2.jpg"></li>
+                                <li><img src="images/single_3_thumb.jpg" alt="" data-image="images/single_3.jpg"></li>
+                            </ul>
                         </div>
-                        <!-- end page title -->
-
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-xl-6">
-                                                <div class="product-detai-imgs">
-                                                    <div class="row">
-                                                        <div class="col-md-2 col-sm-3 col-4">
-                                                            <div class="nav flex-column nav-pills " id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                                                <a class="nav-link active" id="product-1-tab" data-toggle="pill" href="#product-1" role="tab" aria-controls="product-1" aria-selected="true">
-                                                                    <img src="{{ Storage::url('images/' . $products->image) }}" alt="" class="img-fluid mx-auto d-block rounded">
-                                                                </a>
-                                                                <a class="nav-link active" id="product-1-tab" data-toggle="pill" href="#product-1" role="tab" aria-controls="product-1" aria-selected="true">
-                                                                    <img src="{{ Storage::url('images/' . $products->image) }}" alt="" class="img-fluid mx-auto d-block rounded">
-                                                                </a>
-                                                                <a class="nav-link active" id="product-1-tab" data-toggle="pill" href="#product-1" role="tab" aria-controls="product-1" aria-selected="true">
-                                                                    <img src="{{ Storage::url('images/' . $products->image) }}" alt="" class="img-fluid mx-auto d-block rounded">
-                                                                </a>
-                                                                <a class="nav-link active" id="product-1-tab" data-toggle="pill" href="#product-1" role="tab" aria-controls="product-1" aria-selected="true">
-                                                                    <img src="{{ Storage::url('images/' . $products->image) }}" alt="" class="img-fluid mx-auto d-block rounded">
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-7 offset-md-1 col-sm-9 col-8">
-                                                            <div class="tab-content" id="v-pills-tabContent">
-                                                                <div class="tab-pane fade show active" id="product-1" role="tabpanel" aria-labelledby="product-1-tab">
-                                                                    <div>
-                                                                        <img src="{{ Storage::url('images/' . $products->image) }}" alt="" class="img-fluid mx-auto d-block">
-                                                                    </div>
-                                                                </div>
-
-                                                            </div>
-                                                            <div class="text-center">
-                                                                <button type="button" class="btn btn-primary waves-effect waves-light mt-2 mr-1">
-                                                                    <i class="bx bx-cart mr-2"></i> Add to cart
-                                                                </button>
-                                                                <button type="button" class="btn btn-success waves-effect  mt-2 waves-light">
-                                                                    <i class="bx bx-shopping-bag mr-2"></i>Buy now
-                                                                </button>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-xl-6">
-                                                <div class="mt-4 mt-xl-3">
-                                                    <a href="#" class="text-primary">{{ $products->name }}</a>
-                                                    <h4 class="mt-1 mb-3">Wireless Headphone (Black)</h4>
-
-                                                    <p class="text-muted float-left mr-3">
-                                                        <span class="bx bx-star text-warning"></span>
-                                                        <span class="bx bx-star text-warning"></span>
-                                                        <span class="bx bx-star text-warning"></span>
-                                                        <span class="bx bx-star text-warning"></span>
-                                                        <span class="bx bx-star"></span>
-                                                    </p>
-                                                    <p class="text-muted mb-4">( 152 Customers Review )</p>
-
-                                                    <h6 class="text-success text-uppercase">20 % Off</h6>
-                                                    <h5 class="mb-4">Giá : <span class="text-muted mr-2"><del>{{ $products->discount }}</del></span> <b>{{ number_format($products->price) }} VNĐ</b></h5>
-                                                    <p class="text-muted mb-4">{{ $products->detail }}</p>
-                                                    <div class="row mb-3">
-                                                        <div class="col-md-6">
-                                                            <div>
-                                                                <p class="text-muted"><i class="bx bx-unlink font-size-16 align-middle text-primary mr-1"></i> Wireless</p>
-                                                                <p class="text-muted"><i class="bx bx-shape-triangle font-size-16 align-middle text-primary mr-1"></i> Wireless Range : 10m</p>
-                                                                <p class="text-muted"><i class="bx bx-battery font-size-16 align-middle text-primary mr-1"></i> Battery life : 6hrs</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div>
-                                                                <p class="text-muted"><i class="bx bx-user-voice font-size-16 align-middle text-primary mr-1"></i> Bass</p>
-                                                                <p class="text-muted"><i class="bx bx-cog font-size-16 align-middle text-primary mr-1"></i> Warranty : 1 Year</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="product-color">
-                                                        <h5 class="font-size-15">Color :</h5>
-                                                        <a href="#" class="active">
-                                                            <div class="product-color-item border rounded">
-                                                                <img src="assets\images\product\img-7.png" alt="" class="avatar-md">
-                                                            </div>
-                                                            <p>Black</p>
-                                                        </a>
-                                                        <a href="#">
-                                                            <div class="product-color-item border rounded">
-                                                                <img src="assets\images\product\img-7.png" alt="" class="avatar-md">
-                                                            </div>
-                                                            <p>Blue</p>
-                                                        </a>
-                                                        <a href="#">
-                                                            <div class="product-color-item border rounded">
-                                                                <img src="assets\images\product\img-7.png" alt="" class="avatar-md">
-                                                            </div>
-                                                            <p>Gray</p>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- end row -->
-
-                                        <div class="mt-5">
-                                            <h5 class="mb-3">Specifications :</h5>
-
-                                            <div class="table-responsive">
-                                                <table class="table mb-0 table-bordered">
-                                                    <tbody>
-                                                        <tr>
-                                                            <th scope="row" style="width: 400px;">Category</th>
-                                                            <td>Headphone</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">Brand</th>
-                                                            <td>JBL</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">Color</th>
-                                                            <td>Black</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">Connectivity</th>
-                                                            <td>Bluetooth</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">Warranty Summary</th>
-                                                            <td>1 Year</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <!-- end Specifications -->
-                                    </div>
-                                </div>
-                                <!-- end card -->
-                            </div>
+                    </div>
+                    <div class="col-lg-9 image_col order-lg-2 order-1">
+                        <div class="single_product_image">
+                            <img src="{{ Storage::url('images/' . $products->image) }}" alt="" class="single_product_image_background">
                         </div>
-                        <!-- end row -->
-
-                        <div class="row mt-3">
-                            <div class="col-lg-12">
-                                <div>
-                                    <h5 class="mb-3">Recent product :</h5>
-
-                                    <div class="row">
-                                        <div class="col-xl-4 col-sm-6">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="row align-items-center">
-                                                        <div class="col-md-4">
-                                                            <img src="assets\images\product\img-7.png" alt="" class="img-fluid mx-auto d-block">
-                                                        </div>
-                                                        <div class="col-md-8">
-                                                            <div class="text-center text-md-left pt-3 pt-md-0">
-                                                                <h5 class="mb-3 text-truncate"><a href="#" class="text-dark">Wirless Headphone</a></h5>
-                                                                <p class="text-muted">
-                                                                    <i class="bx bx-star text-warning"></i>
-                                                                    <i class="bx bx-star text-warning"></i>
-                                                                    <i class="bx bx-star text-warning"></i>
-                                                                    <i class="bx bx-star text-warning"></i>
-                                                                    <i class="bx bx-star"></i>
-                                                                </p>
-                                                                <h5 class="my-0"><span class="text-muted mr-2"><del>$240</del></span> <b>$225</b></h5>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-4 col-sm-6">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="row align-items-center">
-                                                        <div class="col-md-4">
-                                                            <img src="assets\images\product\img-4.png" alt="" class="img-fluid mx-auto d-block">
-                                                        </div>
-                                                        <div class="col-md-8">
-                                                            <div class="text-center text-md-left pt-3 pt-md-0">
-                                                                <h5 class="mb-3 text-truncate"><a href="#" class="text-dark">Phone patterned cases</a></h5>
-                                                                <p class="text-muted">
-                                                                    <i class="bx bx-star text-warning"></i>
-                                                                    <i class="bx bx-star text-warning"></i>
-                                                                    <i class="bx bx-star text-warning"></i>
-                                                                    <i class="bx bx-star text-warning"></i>
-                                                                    <i class="bx bx-star"></i>
-                                                                </p>
-                                                                <h5 class="my-0"><span class="text-muted mr-2"><del>$150</del></span> <b>$145</b></h5>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-4 col-sm-6">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="row align-items-center">
-                                                        <div class="col-md-4">
-                                                            <img src="assets\images\product\img-6.png" alt="" class="img-fluid mx-auto d-block">
-                                                        </div>
-                                                        <div class="col-md-8">
-                                                            <div class="text-center text-md-left pt-3 pt-md-0">
-
-                                                                <h5 class="mb-3 text-truncate"><a href="#" class="text-dark">Phone Dark Patterned cases</a></h5>
-                                                                <p class="text-muted">
-                                                                    <i class="bx bx-star text-warning"></i>
-                                                                    <i class="bx bx-star text-warning"></i>
-                                                                    <i class="bx bx-star text-warning"></i>
-                                                                    <i class="bx bx-star text-warning"></i>
-                                                                    <i class="bx bx-star"></i>
-                                                                </p>
-                                                                <h5 class="my-0"><span class="text-muted mr-2"><del>$138</del></span> <b>$135</b></h5>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end row -->
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end row -->
-
-                    </div> <!-- container-fluid -->
+                    </div>
                 </div>
-                <!-- End Page-content -->
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="product_details">
+                <div class="product_details_title">
+                    <h2>{{ $products->name }}</h2>
+                    <p>{{ $products->detail }}</p>
+                </div>
+                <div class="free_delivery d-flex flex-row align-items-center justify-content-center">
+                    <span class="ti-truck"></span><span>free delivery</span>
+                </div>
+                <div class="original_price">{{ $products->discount }}</div>
+                <div class="product_price">{{ $products->price }}</div>
+                <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
+                    <span>Quantity:</span>
+                    <div class="quantity_selector">
+                        <span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                        <span id="quantity_value">1</span>
+                        <span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                    </div>
+                    <div class="add_to_cart_button"><a href="#">add to cart</a></div>
+                    <div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{ asset('plugins/jquery-ui-1.12.1.custom/jquery-ui.js')}}"></script>
+<script src="{{ asset('js/contact_custom.js')}}"></script>
+<script src="{{ asset('js/categories_custom.js')}}"></script>
 @endsection

@@ -38,8 +38,8 @@
                                     <label class="col-form-label col-lg-2">Chế độ</label>
                                     <div class="col-lg-10">
                                         <select class="form-control select2" name="status">
-                                            <option value="0">Bật</option>
-                                            <option value="1">Tắt</option>
+                                            <option value="1">Bật</option>
+                                            <option value="0">Tắt</option>
                                         </select>
                                     </div>
                             </div>

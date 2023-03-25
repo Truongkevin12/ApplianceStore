@@ -49,7 +49,7 @@ class NewsController extends Controller
             $requestData['image'] = 'images/' . $newFilename;
         }
         News::create([...$request->all(),'image'=>$newFilename]);
-        return redirect('news')->with('success', 'Thêm sản phẩm mới thành công.');
+        return redirect('admin/news')->with('success', 'Thêm sản phẩm mới thành công.');
     }
 
     /**

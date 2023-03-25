@@ -1,19 +1,22 @@
 <?php
 
-use App\Http\Controllers\Admin\BannerController;
+use App\Http\Middleware\admin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Client\AuthController;
-use App\Http\Controllers\Admin\ContactController;
-use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\VoucherController;
 use App\Http\Controllers\Client\CartController;
 use App\Http\Controllers\Client\HomeController;
+use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\VoucherController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Client\ProductsController;
-use App\Http\Middleware\admin;
+use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Client\ContactHomeController;
 
+// use App\Http\Controllers\Client\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -72,19 +75,11 @@ Route::middleware([admin::class])->group(function () {
         Route::resource('contact',ContactController::class);
         Route::resource('banner',BannerController::class);
         Route::resource('voucher',VoucherController::class);
+        Route::resource('setting',SettingController::class);
     });
 });
-// Route::resource('admin/categories', CategoryController::class);
-// Route::resource('admin/products', ProductController::class);
-// Route::resource('admin/news', NewsController::class);
-// Route::resource('admin/users',UserController::class);
-// Route::resource('admin/contact',ContactController::class);
-// Route::resource('admin/banner',BannerController::class);
-// Route::resource('admin/voucher',VoucherController::class);
-// Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
-// Route::post('/edit/{$id}', [ProductController::class, 'update']);
-Route::get('/new', function () {
-    return view('admin/new/index');
+Route::get('/product', function () {
+    return view('client/product/product');
 });
 Route::get('/admin/order', function () {
     return view('admin.order.show');
@@ -95,15 +90,16 @@ Route::get('/admin/user', function () {
 Route::get('news', function () {
     return view('client/home/new');
 });
-//client
-Route::get('/news',[HomeController::class,'index']);
+Route::get('/home',[HomeController::class,'index']);
+Route::resource('contact',ContactHomeController::class);
+// //client
 Route::get('/product',[ProductsController::class,'index']);
 Route::get('/product/details/{id}',[ProductsController::class,'show']);
-Route::get('home', [ProductsController::class, 'banner'])->name('banner');
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/register', [AuthController::class, 'register'])->name('register');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-//carrt
-Route::get('/cart', [CartController::class],'index')->name('cart.index');
+// // Route::get('home', [ProductsController::class, 'banner'])->name('banner');
+// Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+// Route::post('/login', [AuthController::class, 'login']);
+// Route::post('/register', [AuthController::class, 'register'])->name('register');
+// Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+// //carrt
+// Route::get('/cart', [CartController::class],'index')->name('cart.index');
 ?>

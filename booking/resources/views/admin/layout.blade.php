@@ -185,7 +185,7 @@
                             <li class="menu-title">Menu</li>
 
                             <li>
-                                <a href="javascript: void(0);" class="waves-effect">
+                                <a href="{{ url('admin/dashboard') }}" class="waves-effect">
                                     <i class="bx bx-home-circle"></i>
                                     <span>Trang chủ</span>
                                 </a>
@@ -284,6 +284,15 @@
                                     <li><a href="auth-lock-screen.html">Thêm khách</a></li>
                                     <li><a href="{{ route('users.index') }}">Danh sách</a></li>
                                     <li><a href="auth-lock-screen.html">Hồ sơ</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="bx bx-user-circle"></i>
+                                    <span>Setting</span>
+                                </a>
+                                <ul class="sub-menu mm-collapse" aria-expanded="false">
+                                    <li><a href="{{ route('setting.create') }}">Setting</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -395,6 +404,7 @@
         <script src="{{ asset('assets\js\pages\ecommerce-select2.init.js')}}"></script>
         <!-- App js -->
         <script src="{{ asset('assets\js\app.js')}}"></script>
+        <script src="{{ asset('assets\js\custom.js')}}"></script>
         <script src="{{ asset('assets\libs\jquery.repeater\jquery.repeater.min.js')}}"></script>
 
         <script src="{{ asset('assets\js\pages\task-create.init.js')}}"></script>

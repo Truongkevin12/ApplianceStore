@@ -48,8 +48,8 @@
                                                         <label class="control-label">Trạng thái</label>
 
                                                         <select name="status"class="select2 form-control select2-multiple" multiple="multiple" data-placeholder="Choose ...">
-                                                            <option value="0">Bật</option>
-                                                            <option value="1">Tắt</option>
+                                                            <option value="1">Bật</option>
+                                                            <option value="0">Tắt</option>
                                                         </select>
 
                                                     </div>
